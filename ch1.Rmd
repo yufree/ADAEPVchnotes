@@ -2,7 +2,9 @@
 title: "回归：预测与相关定量特征"
 author: "于淼"
 date: "2014年12月15日"
-output: slidy_presentation
+output:
+  slidy_presentation:
+    fig_caption: true
 ---
 
 ## 统计学 数据分析与回归
@@ -82,7 +84,7 @@ $\eta(X)$是均值0的噪音项，依赖于$X$。
 
 $\hat r(x) = \frac{1}{i:x_i  = x} \sum_{i:x_i = x} y_i$
 
-大数定理下 $\hat \gamma(x) \rightarrow E[Y|X=x]$
+大数定理下 $\hat r(x) \rightarrow E[Y|X=x]$
 
 但现实状况是预测总是基于已有$X$来考虑$Y$，这就存在两个问题：
 
@@ -99,15 +101,30 @@ $MSE(\hat r(x)) = \sigma_x^2 + ((r(x) - \hat r(x))^2$
 
 前者为$x$作为预测形成的统计扰动，后者是实际预测与真实预测的偏差。
 
-另一个$MSE$来自实际预测的模型受到有限样本的条件限制为$MSE(\hat R_n (x)| \hat R_n = \hat \gamma)$ 有
+另一个$MSE$来自实际预测的模型受到有限样本的条件限制为$MSE(\hat R_n (x)| \hat R_n = \hat r)$ 有
 
-$MSE(\hat R_n(x)) = \sigma_x^2 + (\gamma(x) - E[\hat R_n(x)])^2 + Var[\hat R_n(x)]$
+$MSE(\hat R_n(x)) = \sigma_x^2 + (r(x) - E[\hat R_n(x)])^2 + Var[\hat R_n(x)]$
 
 第一项为$x$预测形成的统计扰动，第二项是估计偏差，第三项是估计模型的变动。
 
-也就是说，在特定的点上，降低估计偏差会提高估计模型的变动，也就是*bias-variance trade-off*。因为偏差与统计模型降低的速度不一，我们可以期望得到一个$MSE$最小的建模估计，拟合越精细，偏差越小，但模型受$x$影响变动大，在预测上受影响大。
+也就是说，在特定的点上，降低估计偏差会提高估计模型的变动，也就是*bias-variance trade-off*。因为偏差与统计模型降低的速度不一，我们可以期望得到一个$MSE$最小的建模估计。
 
-最小二乘回归是最小化均方误，也就是
+拟合越精细，偏差越小，但模型受$x$影响变动大，在预测上受影响大。
+
+```{r echo=FALSE,fig.cap='红线表示均值，蓝线表示按原函数形式拟合的方程，黑线表示原函数，均值得到的均方误要小于函数拟合形式，该图说明我们可以牺牲准确性来得到均方误小的模型'}
+ugly.func = function(x) {1 + 0.01*sin(100*x)}
+r = runif(100); y = ugly.func(r) + rnorm(length(r),0,0.5)
+plot(r,y,xlab="x",ylab="y"); curve(ugly.func,add=TRUE)
+abline(h=mean(y),col="red")
+sine.fit = lm(y ~ 1+ sin(100*r))
+curve(sine.fit$coefficients[1]+sine.fit$coefficients[2]*sin(100*x),
+      col="blue",add=TRUE)
+cat('\n\n') 
+```
+
+### 最小二乘拟合
+
+假设$X$与$Y$都是均值为0的两组变量，最小二乘回归是最小化均方误，也就是
 
 $MSE(\alpha,\beta) = E[(Y-\alpha-\beta X)^2|X] = E[Var[Y|X]]+E[(E[Y-\alpha-\beta X|X])^2]$
 
@@ -115,8 +132,35 @@ $MSE(\alpha,\beta) = E[(Y-\alpha-\beta X)^2|X] = E[Var[Y|X]]+E[(E[Y-\alpha-\beta
 
 $\frac{\partial MSE}{\partial \alpha} = E[2(Y-\alpha-\beta X)(-1)]$
 
-$\frac{\partial MSE}{\partial \beta} = E[2]$
-最小二乘回归的本质是在训练集中对因变量的中心平滑。
+即：
+
+$\alpha = E[Y] - b E[X] = 0$
+
+$\frac{\partial MSE}{\partial \beta} = E[2(Y - \alpha - \beta X)(-X)]$
+
+即：
+
+$\beta = \frac{Cov[X,Y]}{Var[X]}$
+
+预测函数为：
+
+$r(x) = x \frac{Cov[X,Y]}{Var[X]}$
+
+给定一组样本，有：
+
+$RSS(\alpha,\beta) \equiv \sum_i(y_i - \alpha - \beta x_i)^2$
+
+解得：
+
+$\hat a = 0$
+
+$\hat b = \frac{\sum_i y_i x_i}{\sum_i x_i^2}$
+
+$\hat r(x) = \sum_i y_i \frac{x_i}{n s_X^2}x$
+
+这可看作对样本$y_i$的加权平均，权重依赖$x_i$距离中心的距离，正比于$x$的数量级，反比于样本方差$s_X^2$.
+
+最小二乘回归的本质可看作训练集中对因变量的中心自变量加权平滑。
 
 ## 线性平滑
 
