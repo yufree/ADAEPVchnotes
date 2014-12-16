@@ -1,0 +1,75 @@
+---
+title: "线性回归的真相"
+author: "于淼"
+date: "2014年12月16日"
+output: slidy_presentation
+---
+
+## 多变量回归
+
+回归函数$r(\vec x)$可用Taylor展开式展开：
+
+$r(\vec x) = r(\vec u) + (\vec x - \vec u) \cdot \nabla r(\vec u) + O(||\vec x - \vec u||^2)$
+
+求解其参数$\beta$：
+
+$\beta = v^{-1} Cov [\vec X, Y]$
+
+$v$是$\bar X$的协方差矩阵，$Cov [\vec X, Y]$是自变量与因变量的协方差矩阵。
+
+自变量没有共线性时，每个自变量的系数可以单独求加起来，有的话考虑协方差矩阵。
+
+### 共线性
+
+共线性会导致$v$不可逆，不要在自变量选择上出现线性组合。
+
+### 预测残差
+
+$Cov[Y - \vec X \cdot \beta] = Cov[Y, \vec X] - Cov[\vec X \cdot (v^{-1} Cov[\vec X, Y]), \vec X] = Cov[Y, \vec X] - v v^{-1} Cov[Y, \vec X] = 0$
+
+预测残差对整体$\vec X$可以是0，对特定$\vec x$预测残差不是0。
+
+### 估计最佳线性预测函数
+
+大数法则，样本协方差会逼近真实协方差，有：
+
+$\hat \beta = (x^T x)^{-1} x^T y \rightarrow \beta$
+
+或者最小化残差平方和：
+
+$RSS(\beta) \equiv \sum_{i=1}^n (y_i - \vec x_i \cdot \beta)^2$
+
+最小化也需要协方差但不需要概率假设，但考虑参数$\hat \beta$的收敛需要不变的协方差概率分布假设。
+
+#### 最小二乘估计的无偏性与方差
+
+考虑$x$固定，$Y$是随机的，有：
+
+$Y = \vec X \cdot \beta + \epsilon$
+
+其中$E[\epsilon] = 0$，$Cov[\epsilon, \vec X] = 0$
+
+可得参数$\beta$为：
+
+$\hat \beta = (x^T x)^{-1} x^T Y = \beta + (x^T x)^{-1} x^T \epsilon$
+
+这告诉我们$\hat \beta$是无偏的：
+
+$E[\hat \beta|x] = \beta + (x^T x)^{-1} x^T E[\epsilon] = \beta + 0 = \beta$
+
+也可得到$\hat \beta$的方差：
+
+$Var[\hat \beta| x ] = Var[\beta + (x^T x)^{-1} x^T \epsilon |x] = Var[(x^T x)^{-1} x^T \epsilon | x] = E[((x^T x)^{-1} x^T \epsilon)^2 | x] = (x^T x)^{-1} x^T Var[\epsilon|x] x (x^T x)^{-1}$
+
+当$\epsilon$等方差为$\sigma^2$时，有：
+
+$Var[\hat \beta|x] = \sigma^2 (x^T x)^{-1}$
+
+即：
+
+$Var[\hat \beta] = \frac{\sigma^2}{n} v^{-1}$
+
+系数$\hat \beta$的方差会随样本数上升而下降，线性变差而变大，自变量协方差变大（不相关）而变小。
+
+## 分布变动 缺失值与转化
+
