@@ -55,7 +55,16 @@
 <p>系数<span class="math">\(\hat \beta\)</span>的方差会随样本数上升而下降，线性变差而变大，自变量协方差变大（不相关）而变小。</p>
 </div>
 <div id="-" class="slide section level2">
-<h1>分布变动 缺失值与转化</h1>
+<h1>分布变动 缺失变量与转化</h1>
+<ul>
+<li><p>有些模型非线性但可得到较高<span class="math">\(R^2\)</span>.</p></li>
+<li><p>缺失的潜在变量如果与已知变量相关会影响自变量对因变量的回归。例如<span class="math">\(Y \sim \mathcal N(X+Z,0.01)\)</span>, 如果<span class="math">\(X\)</span>与<span class="math">\(Z\)</span>正相关，<span class="math">\(Y\)</span>预测会偏高，反之<span class="math">\(Y\)</span>回归均值。这一变化是因为潜在变量的存在而不是其与<span class="math">\(Y\)</span>的回归关系。</p></li>
+<li><p>有时变量是另一个变量的扭曲<span class="math">\(\vec X = \vec U + \vec \eta\)</span>，<span class="math">\(\eta\)</span>是某种噪音，这会导致估计的参数偏小，不过不用钻牛角尖，真实数据总是这样。</p></li>
+<li>数据转化可同时操作<span class="math">\(X\)</span>与<span class="math">\(Y\)</span>，但推荐在<span class="math">\(X\)</span>上：</li>
+<li><span class="math">\(E[f(Y)] \neq f(E[Y])\)</span> 使用最小二乘法会产生偏差</li>
+<li>自变量间的转化形式可以不同</li>
+<li><p>可以使用复杂形式的协变量</p></li>
+</ul>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
