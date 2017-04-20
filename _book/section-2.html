@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Advanced Data Analysis from an Elementary Point of View 中文笔记</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Advanced Data Analysis from an Elementary Point of View 中文笔记">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Advanced Data Analysis from an Elementary Point of View 中文笔记" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Advanced Data Analysis from an Elementary Point of View 中文笔记" />
+  
+  
+  
+
+<meta name="author" content="于淼">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="section-3.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 前言</a></li>
+<li class="chapter" data-level="2" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>2</b> 回归：预测与相关定量特征</a><ul>
+<li class="chapter" data-level="2.1" data-path="section-2.html"><a href="section-2.html#-"><i class="fa fa-check"></i><b>2.1</b> 统计学 数据分析与回归</a></li>
+<li class="chapter" data-level="2.2" data-path="section-2.html"><a href="section-2.html#section-2.2"><i class="fa fa-check"></i><b>2.2</b> 均值回归</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="section-2.html"><a href="section-2.html#section-2.2.1"><i class="fa fa-check"></i><b>2.2.1</b> 估计期望值</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="section-2.html"><a href="section-2.html#section-2.3"><i class="fa fa-check"></i><b>2.3</b> 回归方程</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="section-2.html"><a href="section-2.html#section-2.3.1"><i class="fa fa-check"></i><b>2.3.1</b> 声明</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="section-2.html"><a href="section-2.html#section-2.4"><i class="fa fa-check"></i><b>2.4</b> 估计回归方程</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="section-2.html"><a href="section-2.html#bias-variance-tradeoff"><i class="fa fa-check"></i><b>2.4.1</b> Bias-Variance Tradeoff</a></li>
+<li class="chapter" data-level="2.4.2" data-path="section-2.html"><a href="section-2.html#section-2.4.2"><i class="fa fa-check"></i><b>2.4.2</b> 最小二乘拟合</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="section-2.html"><a href="section-2.html#section-2.5"><i class="fa fa-check"></i><b>2.5</b> 线性平滑</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="section-3.html"><a href="section-3.html"><i class="fa fa-check"></i><b>3</b> 线性回归的真相</a><ul>
+<li class="chapter" data-level="3.1" data-path="section-3.html"><a href="section-3.html#section-3.1"><i class="fa fa-check"></i><b>3.1</b> 多变量回归</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="section-3.html"><a href="section-3.html#section-3.1.1"><i class="fa fa-check"></i><b>3.1.1</b> 共线性</a></li>
+<li class="chapter" data-level="3.1.2" data-path="section-3.html"><a href="section-3.html#section-3.1.2"><i class="fa fa-check"></i><b>3.1.2</b> 预测残差</a></li>
+<li class="chapter" data-level="3.1.3" data-path="section-3.html"><a href="section-3.html#section-3.1.3"><i class="fa fa-check"></i><b>3.1.3</b> 估计最佳线性预测函数</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="section-2.html"><a href="section-2.html#-"><i class="fa fa-check"></i><b>3.2</b> 分布变动 缺失变量与转化</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Advanced Data Analysis from an Elementary Point of View 中文笔记</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section-2" class="section level1">
+<h1><span class="header-section-number">2</span> 回归：预测与相关定量特征</h1>
+<div id="-" class="section level2">
+<h2><span class="header-section-number">2.1</span> 统计学 数据分析与回归</h2>
+<blockquote>
+<p>Statistics is the branch of mathematical engineering which designs and analyses methods for drawing reliable inferences from imperfect data.</p>
+</blockquote>
+<ul>
+<li>统计学不研究世界而研究我们理解世界的方法</li>
+<li>科学都是在处理不完美的数据</li>
+<li>人们会对两个或多个变量间关系感兴趣而回归最常使用</li>
+<li>回归通常通过预测来验证</li>
+</ul>
+<blockquote>
+<p>回归是数据分析、推断及预测的基本出发点</p>
+</blockquote>
+</div>
+<div id="section-2.2" class="section level2">
+<h2><span class="header-section-number">2.2</span> 均值回归</h2>
+<p>首先猜一个随机数量的值，判断预测好坏要通过与真实值的比对，于是有如下函数表示预测误差：</p>
+<p><span class="math inline">\(MSE(\alpha) \equiv E[(Y - \alpha)^2]\)</span></p>
+<p>这里使用了均方误，使这个函数最小有:</p>
+<p><span class="math inline">\(MSE(\alpha) = (E[Y]-\alpha)^2 + Var[Y]\)</span></p>
+<p>对<span class="math inline">\(\alpha\)</span>求导，可得当<span class="math inline">\(\alpha = E[Y]\)</span>时预测误差最小。</p>
+<p>使用均方误表示预测误差的函数，最佳预测点为<span class="math inline">\(Y\)</span>的均值，用<span class="math inline">\(r\)</span>表示。</p>
+<div id="section-2.2.1" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> 估计期望值</h3>
+<p>采样，<span class="math inline">\(Y\)</span>的期望估计为：</p>
+<p><span class="math inline">\(\hat r \equiv \frac{1}{n} \sum_i^n y_i\)</span></p>
+<p>当样本为IID时，有</p>
+<p><span class="math inline">\(\hat r \rightarrow E[Y] = r\)</span></p>
+<p>大数定律表明这个均值可通过对样本取均值获得，收敛速度与取样数跟总体方差与样本数有关。</p>
+<blockquote>
+<p>sit, wait, and average</p>
+</blockquote>
+</div>
+</div>
+<div id="section-2.3" class="section level2">
+<h2><span class="header-section-number">2.3</span> 回归方程</h2>
+<p>通常预测不是瞎猜，如果知道有其他数量与要预测的量有关系，可以通过这些自变量去预测因变量。</p>
+<p>预测为一种条件概率形式：</p>
+<p><span class="math inline">\(E[U] = E[E[U|V]]\)</span></p>
+<p>这样我们可以把<span class="math inline">\(Y\)</span>写成<span class="math inline">\(f(x)\)</span>的形式，有：</p>
+<p><span class="math inline">\(MSE(f(x)) = E[Var[Y|X]+(E[Y - f(x)|X])^2]\)</span></p>
+<p>因为预测只依赖<span class="math inline">\(f(x)\)</span>，所以有需优化的回归函数:</p>
+<p><span class="math inline">\(r(x) = E[Y|X = x]\)</span></p>
+<p>因此<span class="math inline">\(r(x)\)</span>可理解为条件期望的回归函数。</p>
+<div id="section-2.3.1" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> 声明</h3>
+<p>当使用自变量与因变量术语时，默认存在因果模型：</p>
+<p><span class="math inline">\(Y \leftarrow r(X) + \epsilon\)</span></p>
+<p>其中默认<span class="math inline">\(\epsilon\)</span>为具有固定分布独立于<span class="math inline">\(X\)</span>的误差项，但实际过程无法假定其独立，有：</p>
+<p><span class="math inline">\(Y|X = r(X) + \eta(X)\)</span></p>
+<p><span class="math inline">\(\eta(X)\)</span>是均值0的噪音项，依赖于<span class="math inline">\(X\)</span>。</p>
+<p>即使<span class="math inline">\(r(X)\)</span>为常数也不说明<span class="math inline">\(X\)</span>与<span class="math inline">\(Y\)</span>是独立的，即达到相同的结果不说明原因相同或不同，确认偏误。</p>
+</div>
+</div>
+<div id="section-2.4" class="section level2">
+<h2><span class="header-section-number">2.4</span> 估计回归方程</h2>
+<p>如果<span class="math inline">\(X\)</span>无限存在，那么预测<span class="math inline">\(Y\)</span>可以通过条件样本平均值，在给定大量<span class="math inline">\(X\)</span>下求<span class="math inline">\(Y\)</span>的均值：</p>
+<p><span class="math inline">\(\hat r(x) = \frac{1}{i:x_i = x} \sum_{i:x_i = x} y_i\)</span></p>
+<p>大数定理下 <span class="math inline">\(\hat r(x) \rightarrow E[Y|X=x]\)</span></p>
+<p>但现实状况是预测总是基于已有<span class="math inline">\(X\)</span>来考虑<span class="math inline">\(Y\)</span>，这就存在两个问题：</p>
+<ul>
+<li><span class="math inline">\(X\)</span>不够采样导致预测存在偏差</li>
+<li>关系能否外推并平滑</li>
+</ul>
+<p>进行模型预测时，实际上是对已知自变量因变量关系的内插，外推与平滑。</p>
+<div id="bias-variance-tradeoff" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Bias-Variance Tradeoff</h3>
+<p>模型将实际过程的自变量限制到一种与因变量的关系里，这个关系是对真实关系的近似。在<span class="math inline">\(x\)</span>点有</p>
+<p><span class="math inline">\(MSE(\hat r(x)) = \sigma_x^2 + ((r(x) - \hat r(x))^2\)</span></p>
+<p>前者为<span class="math inline">\(x\)</span>作为预测形成的统计扰动，后者是实际预测与真实预测的偏差。</p>
+<p>另一个<span class="math inline">\(MSE\)</span>来自实际预测的模型受到有限样本的条件限制为<span class="math inline">\(MSE(\hat R_n (x)| \hat R_n = \hat r)\)</span> 有</p>
+<p><span class="math inline">\(MSE(\hat R_n(x)) = \sigma_x^2 + (r(x) - E[\hat R_n(x)])^2 + Var[\hat R_n(x)]\)</span></p>
+<p>第一项为<span class="math inline">\(x\)</span>预测形成的统计扰动，第二项是估计偏差，第三项是估计模型的变动。</p>
+<p>也就是说，在特定的点上，降低估计偏差会提高估计模型的变动，也就是<em>bias-variance trade-off</em>。因为偏差与统计模型降低的速度不一，我们可以期望得到一个<span class="math inline">\(MSE\)</span>最小的建模估计。</p>
+<p>拟合越精细，偏差越小，但模型受<span class="math inline">\(x\)</span>影响变动大，在预测上受影响大。</p>
+<div class="figure"><span id="fig:unnamed-chunk-1"></span>
+<img src="_main_files/figure-html/unnamed-chunk-1-1.png" alt="红线表示均值，蓝线表示按原函数形式拟合的方程，黑线表示原函数，均值得到的均方误要小于函数拟合形式，该图说明我们可以牺牲准确性来得到均方误小的模型" width="672" />
+<p class="caption">
+Figure 2.1: 红线表示均值，蓝线表示按原函数形式拟合的方程，黑线表示原函数，均值得到的均方误要小于函数拟合形式，该图说明我们可以牺牲准确性来得到均方误小的模型
+</p>
+</div>
+</div>
+<div id="section-2.4.2" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> 最小二乘拟合</h3>
+<p>假设<span class="math inline">\(X\)</span>与<span class="math inline">\(Y\)</span>都是均值为0的两组变量，最小二乘回归是最小化均方误，也就是</p>
+<p><span class="math inline">\(MSE(\alpha,\beta) = E[(Y-\alpha-\beta X)^2|X] = E[Var[Y|X]]+E[(E[Y-\alpha-\beta X|X])^2]\)</span></p>
+<p>前面一项无参数，对后面微分，可得</p>
+<p><span class="math inline">\(\frac{\partial MSE}{\partial \alpha} = E[2(Y-\alpha-\beta X)(-1)]\)</span></p>
+<p>即：</p>
+<p><span class="math inline">\(\alpha = E[Y] - b E[X] = 0\)</span></p>
+<p><span class="math inline">\(\frac{\partial MSE}{\partial \beta} = E[2(Y - \alpha - \beta X)(-X)]\)</span></p>
+<p>即：</p>
+<p><span class="math inline">\(\beta = \frac{Cov[X,Y]}{Var[X]}\)</span></p>
+<p>预测函数为：</p>
+<p><span class="math inline">\(r(x) = x \frac{Cov[X,Y]}{Var[X]}\)</span></p>
+<p>给定一组样本，有：</p>
+<p><span class="math inline">\(RSS(\alpha,\beta) \equiv \sum_i(y_i - \alpha - \beta x_i)^2\)</span></p>
+<p>解得：</p>
+<p><span class="math inline">\(\hat a = 0\)</span></p>
+<p><span class="math inline">\(\hat b = \frac{\sum_i y_i x_i}{\sum_i x_i^2}\)</span></p>
+<p><span class="math inline">\(\hat r(x) = \sum_i y_i \frac{x_i}{n s_X^2}x\)</span></p>
+<p>这可看作对样本<span class="math inline">\(y_i\)</span>的加权平均，权重依赖<span class="math inline">\(x_i\)</span>距离中心的距离，正比于<span class="math inline">\(x\)</span>的数量级，反比于样本方差<span class="math inline">\(s_X^2\)</span>.</p>
+<p>最小二乘回归的本质可看作训练集中对因变量的中心自变量加权平滑。</p>
+</div>
+</div>
+<div id="section-2.5" class="section level2">
+<h2><span class="header-section-number">2.5</span> 线性平滑</h2>
+<p>均值回归与最小二乘回归是线性平滑的特例</p>
+<p><span class="math inline">\(\hat r(x)=\sum_i y_i \hat \omega (x_i,x)\)</span></p>
+<p>均值是<span class="math inline">\(\hat \omega(x_i,x) = 1/n\)</span> OLS是<span class="math inline">\(\hat \omega(x_i,x) = (x_i/ns_X^2)x\)</span></p>
+<p>核平滑又称核回归或Nadaraya-Watson回归，需要核函数<span class="math inline">\(K(x_i,x)\)</span>，核函数要满足下面特性：</p>
+<ul>
+<li><span class="math inline">\(K(x_i,x)\geq 0\)</span></li>
+<li><span class="math inline">\(K(x_i,x)\)</span> 只依赖于距离<span class="math inline">\(x_i - x\)</span></li>
+<li><span class="math inline">\(\int x K(0,x) dx = 0\)</span></li>
+<li><span class="math inline">\(0 &lt; \int x^2 K(0,x) dx &lt; \infty\)</span></li>
+</ul>
+<p>回归函数形式：</p>
+<p><span class="math inline">\(\hat r(x) = \sum_i y_i \frac{K(x_i,x)}{\sum_jK(x_j,x)}\)</span></p>
+<p>也就是：</p>
+<p><span class="math inline">\(\hat \omega(x_i,x) = \frac{K(x_i,x)}{\sum_jK(x_j,x)}\)</span></p>
+<p>带宽<span class="math inline">\(b\)</span>，高斯核函数：</p>
+<p><span class="math inline">\(e^{-(x-x_i)^2/2b}\)</span></p>
+<p>核函数保证靠近预测点权重高，远的降低但不会为0.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-3.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

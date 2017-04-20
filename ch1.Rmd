@@ -1,11 +1,4 @@
----
-title: "回归：预测与相关定量特征"
-author: "于淼"
-date: "2014年12月15日"
-output:
-  slidy_presentation:
-    fig_caption: true
----
+# 回归：预测与相关定量特征
 
 ## 统计学 数据分析与回归
 

@@ -1,0 +1,12 @@
+---
+title: "Advanced Data Analysis from an Elementary Point of View 中文笔记"
+author: "于淼"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+  bookdown::pdf_book: default
+---
+
+# 前言
+

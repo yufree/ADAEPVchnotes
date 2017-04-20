@@ -1,9 +1,4 @@
----
-title: "线性回归的真相"
-author: "于淼"
-date: "2014年12月16日"
-output: slidy_presentation
----
+# 线性回归的真相
 
 ## 多变量回归
 
