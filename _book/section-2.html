@@ -122,17 +122,17 @@
 <div id="section-2.2" class="section level2">
 <h2><span class="header-section-number">2.2</span> 均值回归</h2>
 <p>首先猜一个随机数量的值，判断预测好坏要通过与真实值的比对，于是有如下函数表示预测误差：</p>
-<p><span class="math inline">\(MSE(\alpha) \equiv E[(Y - \alpha)^2]\)</span></p>
+<p><span class="math display">\[MSE(m) \equiv \mathbb{E}[(Y - m)^2]\]</span></p>
 <p>这里使用了均方误，使这个函数最小有:</p>
-<p><span class="math inline">\(MSE(\alpha) = (E[Y]-\alpha)^2 + Var[Y]\)</span></p>
-<p>对<span class="math inline">\(\alpha\)</span>求导，可得当<span class="math inline">\(\alpha = E[Y]\)</span>时预测误差最小。</p>
-<p>使用均方误表示预测误差的函数，最佳预测点为<span class="math inline">\(Y\)</span>的均值，用<span class="math inline">\(r\)</span>表示。</p>
+<p><span class="math display">\[MSE(m) = (\mathbb{E}[Y]-m)^2 + Var[Y]\]</span></p>
+<p>对<span class="math inline">\(m\)</span>求导，可得当<span class="math inline">\(m = \mathbb{E}[Y]\)</span>时预测误差最小。</p>
+<p>使用均方误表示预测误差的函数，最佳预测点为<span class="math inline">\(Y\)</span>的均值，用<span class="math inline">\(\mu\)</span>表示。</p>
 <div id="section-2.2.1" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> 估计期望值</h3>
 <p>采样，<span class="math inline">\(Y\)</span>的期望估计为：</p>
-<p><span class="math inline">\(\hat r \equiv \frac{1}{n} \sum_i^n y_i\)</span></p>
+<p><span class="math display">\[\hat \mu \equiv \frac{1}{n} \sum_{i=1}^n y_i\]</span></p>
 <p>当样本为IID时，有</p>
-<p><span class="math inline">\(\hat r \rightarrow E[Y] = r\)</span></p>
+<p><span class="math display">\[\hat \mu \rightarrow \mathbb{E}[Y] = \mu\]</span></p>
 <p>大数定律表明这个均值可通过对样本取均值获得，收敛速度与取样数跟总体方差与样本数有关。</p>
 <blockquote>
 <p>sit, wait, and average</p>
@@ -269,7 +269,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["_main.epub"],
 "toc": {
 "collapse": "subsection"
 }

@@ -15,25 +15,25 @@
 
 首先猜一个随机数量的值，判断预测好坏要通过与真实值的比对，于是有如下函数表示预测误差：
 
-$MSE(\alpha) \equiv E[(Y - \alpha)^2]$
+$$MSE(m) \equiv \mathbb{E}[(Y - m)^2]$$
 
 这里使用了均方误，使这个函数最小有:
 
-$MSE(\alpha) = (E[Y]-\alpha)^2 + Var[Y]$
+$$MSE(m) = (\mathbb{E}[Y]-m)^2 + Var[Y]$$
 
-对$\alpha$求导，可得当$\alpha = E[Y]$时预测误差最小。
+对$m$求导，可得当$m = \mathbb{E}[Y]$时预测误差最小。
 
-使用均方误表示预测误差的函数，最佳预测点为$Y$的均值，用$r$表示。
+使用均方误表示预测误差的函数，最佳预测点为$Y$的均值，用$\mu$表示。
 
 ### 估计期望值
 
 采样，$Y$的期望估计为：
 
-$\hat r \equiv \frac{1}{n} \sum_i^n y_i$
+$$\hat \mu \equiv \frac{1}{n} \sum_{i=1}^n y_i$$
 
 当样本为IID时，有
 
-$\hat r \rightarrow E[Y] = r$
+$$\hat \mu \rightarrow \mathbb{E}[Y] = \mu$$
 
 大数定律表明这个均值可通过对样本取均值获得，收敛速度与取样数跟总体方差与样本数有关。
 
